@@ -296,10 +296,12 @@ footer{border-top:1px solid var(--line);padding:26px 0 48px;color:var(--muted-in
       <div>nino-trabalho-kit/</div>
       <div>├─ onboarding/ <small>esta página</small></div>
       <div>├─ marca/ <small>logo e tokens da identidade</small></div>
-      <div>├─ skills/criar-pagina/ <small>como o assistente cria páginas</small></div>
-      <div>├─ vault/ <small>estrutura de pastas e constituição (em breve)</small></div>
-      <div>├─ agentes/ <small>time de apoio (em breve)</small></div>
-      <div>└─ hooks/ <small>painel de início e captura (em breve)</small></div>
+      <div>├─ skills/ <small>briefing, save, criar-pagina</small></div>
+      <div>├─ vault/ <small>estrutura de pastas e constituição</small></div>
+      <div>├─ agentes/ <small>time de apoio</small></div>
+      <div>├─ hooks/ <small>painel de início e captura</small></div>
+      <div>├─ instalar.ps1 <small>monta o vault</small></div>
+      <div>└─ INSTALACAO.md <small>passo a passo completo</small></div>
     </div>
   </div>
 </section>
@@ -380,7 +382,7 @@ const SK=[
 $("#skills").innerHTML=SK.map(([g,items])=>'<div class="group">'+g+'</div><div class="cards">'+items.map(([n,d,t])=>'<div class="card skill rv"><div><code>'+n+'</code><p>'+d+'</p></div><span class="tag '+(t==="Novo"?"new":"")+'">'+t+'</span></div>').join("")+'</div>').join("");
 
 /* repo itens */
-const RI=[["folder","brush","marca/","Logo e tokens de cor e fonte da identidade visual.","pronto"],["folder","pen","skills/criar-pagina","Como o assistente cria páginas bonitas e rápidas.","pronto"],["folder","list","onboarding/","Esta central, para reaproveitar em outros briefings.","pronto"],["folder","folder","vault/","Estrutura de pastas e constituição do assistente.","em breve"],["folder","users","agentes/","Arquivos de cada agente do time.","em breve"],["folder","cal","hooks/","Painel de início do dia e captura automática.","em breve"]];
+const RI=[["folder","brush","marca/","Logo e tokens de cor e fonte da identidade visual.","pronto"],["folder","pen","skills/criar-pagina","Como o assistente cria páginas bonitas e rápidas.","pronto"],["folder","list","onboarding/","Esta central, para reaproveitar em outros briefings.","pronto"],["folder","folder","vault/","Estrutura de pastas e constituição do assistente.","pronto"],["folder","users","agentes/","Arquivos de cada agente do time.","pronto"],["folder","cal","hooks/","Painel de início do dia e captura automática, sem voz.","pronto"],["folder","down","instalar.ps1","Monta o vault completo com um comando.","pronto"]];
 $("#repo-items").innerHTML=RI.map(([,i,n,d,s])=>'<div class="card rv">'+ic(i)+'<h3 style="font-family:ui-monospace,Consolas,monospace;font-size:15px">'+n+'</h3><p>'+d+'</p><div style="margin-top:8px"><span class="tag '+(s==="pronto"?"new":"soon")+'">'+s+'</span></div></div>').join("");
 
 /* instalação */
@@ -389,11 +391,13 @@ const IN=[
  ["Instalar Node.js e Git","Necessários para o Claude Code e para baixar o kit.",null],
  ["Instalar o Claude Code","Entrar com a conta Claude fornecida pela empresa.","npm install -g @anthropic-ai/claude-code"],
  ["Instalar o Maestri","Painel onde os agentes trabalham à vista. Mesmo instalador do ambiente de casa.",null],
- ["Baixar o kit","Entrar no GitHub com a conta da Julia (repositório privado) e clonar.","git clone https://github.com/impactocriativosoriginal-bit/nino-trabalho-kit.git"],
+ ["Baixar o kit","Entrar no GitHub com a conta da Julia (repositório privado) e clonar.","git clone https://github.com/impactocriativosoriginal-bit/nino-trabalho-kit.git\ncd nino-trabalho-kit"],
+ ["Montar o vault","Um comando cria a pasta ProMaxima-Marketing em Documentos, com agentes, hooks e skills. Não sobrescreve nada que já exista.","powershell -ExecutionPolicy Bypass -File .\\instalar.ps1"],
  ["Instalar o pacote de marketing","Reúne as skills de social, plano, texto e pesquisa.","npx skills add coreyhaines31/marketingskills"],
  ["Instalar o Humanizer","Dentro do Claude Code, em dois comandos.","/plugin marketplace add blader/humanizer\n/plugin install humanizer@humanizer"],
- ["Abrir o vault no Obsidian","Abrir a pasta do kit como vault e conferir se as pastas aparecem.",null],
- ["Abrir o Claude Code na pasta do vault","Pedir: \"leia o CLAUDE.md e me entreviste com o briefing\" e colar as respostas copiadas.",null]
+ ["Abrir o vault no Obsidian","Obsidian, Abrir pasta como vault, e escolher Documentos\\ProMaxima-Marketing.",null],
+ ["Abrir o Claude Code na pasta do vault","Abrir o terminal dentro da pasta do vault e rodar claude. O painel do dia aparece sozinho.","claude"],
+ ["Rodar o onboarding","Responder o briefing com a gestão, copiar as respostas e colar no Claude depois do comando abaixo.","/briefing"]
 ];
 const CK="onb-install-v1";let ck={};try{ck=JSON.parse(localStorage.getItem(CK)||"{}")}catch(e){}
 $("#install").innerHTML=IN.map(([t,d,c],i)=>'<div class="chk rv" id="c'+i+'"><input type="checkbox" id="k'+i+'" aria-label="'+t+'"><div style="flex:1;min-width:0"><b><label for="k'+i+'">'+(i+1)+'. '+t+'</label></b><span class="d">'+d+'</span>'+(c?c.split("\n").map(l=>'<div class="code"><code>'+l+'</code><button type="button" data-cp="'+l.replace(/"/g,"&quot;")+'">Copiar</button></div>').join(""):"")+'</div></div>').join("");

@@ -1,4 +1,4 @@
----
+﻿---
 name: criar-pagina
 description: Cria páginas bonitas e rápidas para o trabalho (briefing, one-pager, apresentação em HTML, relatório visual, landing de campanha) usando a identidade visual da empresa. Use quando a Julia pedir "criar página", "montar uma página de", "apresentação em HTML", "página de briefing", "página de relatório" ou similar.
 ---
@@ -8,7 +8,7 @@ description: Cria páginas bonitas e rápidas para o trabalho (briefing, one-pag
 > Quem roda: o **Nino do Trabalho**. Página pequena, feita com capricho, na identidade da empresa. Briefing não é desculpa para página feia.
 
 ## Antes de começar
-1. Ler `marca/promaxima-tokens.md` (cores, fontes, logo, tom). Sempre usar a logo oficial de `marca/assets/`, nunca redesenhar.
+1. Ler `assets/marca/promaxima-tokens.md` (cores, fontes, logo, tom). Sempre usar a logo oficial `assets/marca/logo.png`, nunca redesenhar.
 2. Descobrir 3 coisas, com no máximo 1 pergunta: **quem vai ver**, **qual a ação que a pessoa deve fazer** e **onde vai ser publicada** (interno, cliente, público).
 3. Se a página for interna ou tiver dado da empresa, **não publicar em link aberto**. Usar `noindex` e pedir ok antes de publicar.
 
@@ -35,3 +35,4 @@ description: Cria páginas bonitas e rápidas para o trabalho (briefing, one-pag
 - Página interna: `<meta name="robots" content="noindex, nofollow">` e sem proteção só se a Julia confirmar que o link pode ser aberto.
 - Referência de página pronta neste repositório: `onboarding/index.html` (abas, progresso, logo, animações, tema claro e escuro).
 - Ao terminar, anunciar em 1 linha o arquivo gravado e a próxima ação da Julia.
+

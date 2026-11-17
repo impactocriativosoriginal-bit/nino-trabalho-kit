@@ -1,9 +1,9 @@
-# ProMáxima: tokens da marca
+﻿# ProMáxima: tokens da marca
 
 > Levantado do site oficial (promaxima.com.br) em 2026-11-16. Quando a empresa entregar o manual de marca, ele vence este arquivo.
 
 ## Logo
-- Arquivo: `marca/assets/logo.png` (wordmark "proMáxima" com a assinatura "Gestão Estratégica", fundo transparente)
+- Arquivo: `assets/marca/logo.png` (no kit: `marca/logo.png`) (wordmark "proMáxima" com a assinatura "Gestão Estratégica", fundo transparente)
 - Fundo escuro: usar versão branca (filtro `brightness(0) invert(1)`) até existir arquivo oficial
 - Não esticar, não recolorir fora do branco, manter respiro ao redor
 
@@ -38,3 +38,4 @@
 - Fundada em 2012, em Maceió. Escritórios: Maceió (sede), Brasília e Recife.
 - 1000+ clientes, 26 UFs + DF, 3 produtos próprios (govtech).
 - Instagram: @promaximagestao
+
