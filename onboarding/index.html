@@ -5,196 +5,495 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Onboarding de Marketing</title>
-<meta name="description" content="Briefing de onboarding do time de marketing, para responder junto com a gestão.">
+<meta name="description" content="Central de onboarding do marketing: briefing, time de apoio, skills, instalação e repositório.">
+<link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#1D3A5F; --navy-d:#112338; --navy-dd:#080F1C; --peri:#7B8DC8; --peri-l:#A8B4DC;
-  --peri-pale:#E8ECFA; --off:#F4F6FB; --muted:#6B7A99; --border:#DDE2F0; --teal:#2E8B8A; --gold:#C8AA50;
+  --navy:#1D3A5F; --navy-d:#112338; --navy-dd:#080F1C; --mid:#2E5280; --sky:#3A6EA8;
+  --peri:#7B8DC8; --peri-l:#A8B4DC; --peri-pale:#E8ECFA; --off:#F4F6FB; --muted:#6B7A99; --border:#DDE2F0;
+  --teal:#2E8B8A; --teal-l:#4AACAB; --cyan:#4BB8C8; --purple:#6B5BB5; --gold:#C8AA50;
   --bg:var(--off); --surface:#fff; --text:#112338; --text-2:#4A5568; --line:var(--border);
-  --hero-bg:linear-gradient(160deg,#080F1C 0%,#112338 55%,#1D3A5F 100%);
-  --accent:#1D3A5F; --accent-ink:#fff; --focus:#7B8DC8;
+  --muted-ink:#55627d; --teal-ink:#1f6e6d; --peri-ink:#3A6EA8; --gold-ink:#7a661c;
+  --accent:#1D3A5F; --accent-ink:#fff; --accent-soft:#E8ECFA; --focus:#7B8DC8;
+  --logo-filter:none; --shadow:0 1px 2px rgba(17,35,56,.06),0 8px 24px rgba(17,35,56,.06);
+  --glass:rgba(244,246,251,.82);
+  --ease:cubic-bezier(.22,.8,.2,1);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#080F1C; --surface:#112338; --text:#E8ECFA; --text-2:#A8B4DC; --line:#25405f;
-    --accent:#7B8DC8; --accent-ink:#080F1C;
+    --bg:#080F1C; --surface:#0f1d31; --text:#E8ECFA; --text-2:#A8B4DC; --line:#223a58;
+    --accent:#7B8DC8; --accent-ink:#080F1C; --accent-soft:#16294a; --logo-filter:brightness(0) invert(1);
+    --muted-ink:#9aa8cc; --teal-ink:#5ecfce; --peri-ink:#A8B4DC; --gold-ink:#e0c474;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3); --glass:rgba(8,15,28,.82);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#080F1C; --surface:#112338; --text:#E8ECFA; --text-2:#A8B4DC; --line:#25405f;
-  --accent:#7B8DC8; --accent-ink:#080F1C;
+  --bg:#080F1C; --surface:#0f1d31; --text:#E8ECFA; --text-2:#A8B4DC; --line:#223a58;
+  --accent:#7B8DC8; --accent-ink:#080F1C; --accent-soft:#16294a; --logo-filter:brightness(0) invert(1);
+  --muted-ink:#9aa8cc; --teal-ink:#5ecfce; --peri-ink:#A8B4DC; --gold-ink:#e0c474;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3); --glass:rgba(8,15,28,.82);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.2;margin:0}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px}
-.hero{background:var(--hero-bg);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,141,200,.35),transparent 65%)}
-.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--peri-l);font-weight:600}
-.hero h1{font-size:clamp(30px,6vw,46px);margin:14px 0 16px;font-weight:700}
-.hero h1 em{font-style:normal;color:var(--peri-l)}
-.hero p{max-width:560px;color:rgba(255,255,255,.78);margin:0 0 24px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{border:1px solid rgba(168,180,220,.4);color:var(--peri-l);border-radius:999px;padding:4px 12px;font-size:13px}
-.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
-.bar .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
-.track{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
-.fill{height:100%;width:0;background:var(--accent);transition:width .3s}
-.count{font-size:13px;color:var(--text-2);white-space:nowrap;font-variant-numeric:tabular-nums}
-.btn{font:inherit;font-weight:600;font-size:14px;border:0;border-radius:10px;padding:10px 16px;background:var(--accent);color:var(--accent-ink);cursor:pointer;min-height:44px}
-.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
-.btn:hover{filter:brightness(1.08)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.2;margin:0;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+
+/* topo */
+.top{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{height:30px;width:auto;filter:var(--logo-filter);display:block}
+.tabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding:0 4px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{position:relative;font:inherit;font-size:14px;font-weight:500;color:var(--text-2);background:none;border:0;border-radius:8px;padding:0 12px;min-height:44px;cursor:pointer;white-space:nowrap;transition:color .2s}
+.tab:hover{color:var(--text)}
+.tab[aria-selected="true"]{color:var(--text)}
+.tab::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:var(--accent);transform:scaleX(0);transition:transform .3s var(--ease)}
+.tab[aria-selected="true"]::after{transform:scaleX(1)}
+.theme{flex:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:10px;cursor:pointer;font-size:16px}
+.theme:hover{background:var(--accent-soft)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-section.blk{margin:36px 0}
-.blk h2{font-size:22px;margin-bottom:4px;display:flex;gap:10px;align-items:baseline}
-.blk h2 span{color:var(--peri);font-size:14px;font-weight:600}
-.blk .sub{color:var(--text-2);margin:0 0 16px;font-size:15px}
-.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
-.q label{display:block;font-weight:600;margin-bottom:4px}
-.q .why{font-size:13px;color:var(--muted);margin:0 0 10px}
-.q .pre{font-size:13px;color:var(--teal);margin:0 0 10px}
-textarea{width:100%;min-height:76px;resize:vertical;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(160deg,#080F1C 0%,#112338 55%,#1D3A5F 100%);padding:56px 0 64px}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;animation:float 14s ease-in-out infinite}
+.orb.a{width:380px;height:380px;right:-100px;top:-120px;background:#7B8DC8}
+.orb.b{width:300px;height:300px;left:-90px;bottom:-140px;background:#2E8B8A;opacity:.35;animation-delay:-5s}
+.orb.c{width:200px;height:200px;right:22%;bottom:-90px;background:#6B5BB5;opacity:.35;animation-delay:-9s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(24px,-20px) scale(1.08)}}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(168,180,220,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(168,180,220,.07) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 70% 30%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 70% 30%,#000 10%,transparent 70%)}
+.hero .wrap{position:relative}
+.hero-logo{height:54px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:30px}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--peri-l);font-weight:600;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--peri-l)}
+.hero h1{font-size:clamp(32px,6.4vw,52px);margin:16px 0 16px;font-weight:700;max-width:16ch}
+.hero h1 em{font-style:normal;color:#A8B4DC}
+.hero p.lead{max-width:540px;color:rgba(255,255,255,.78);margin:0 0 28px;font-size:17px}
+.cta-row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font:inherit;font-weight:600;font-size:14px;border:0;border-radius:10px;padding:0 18px;min-height:44px;background:var(--accent);color:var(--accent-ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s var(--ease),filter .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 6px 18px rgba(29,58,95,.25)}
+.btn:active{transform:translateY(0)}
+.btn.light{background:#fff;color:#1D3A5F}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.ghost-w{background:transparent;color:#fff;border:1px solid rgba(168,180,220,.5)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:44px;background:rgba(168,180,220,.2);border:1px solid rgba(168,180,220,.2);border-radius:14px;overflow:hidden}
+.stat{background:rgba(8,15,28,.55);padding:16px 14px}
+.stat b{display:block;font-family:Sora,sans-serif;font-size:clamp(22px,4vw,30px);font-weight:700;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--peri-l);letter-spacing:.04em}
+
+/* painéis */
+.panel{display:none;padding:36px 0 72px}
+.panel.on{display:block;animation:in .45s var(--ease)}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sec-h{margin:0 0 6px;font-size:clamp(22px,4vw,28px)}
+.sec-sub{color:var(--text-2);margin:0 0 22px;max-width:60ch}
+.cards{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);transition:transform .3s var(--ease),border-color .3s}
+a.card,button.card{text-decoration:none;color:inherit;text-align:left;font:inherit;cursor:pointer;display:block;width:100%}
+.card:hover{transform:translateY(-3px);border-color:var(--peri)}
+.card h3{font-size:17px;margin:10px 0 4px}
+.card p{margin:0;color:var(--text-2);font-size:14px}
+.ico{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.ico svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--accent)}
+.tag.new{background:rgba(46,139,138,.15);color:var(--teal-ink)}
+.tag.soon{background:rgba(200,170,80,.18);color:var(--gold-ink)}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.steps li{counter-increment:s;display:flex;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.steps li::before{content:counter(s);flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:600;font-size:13px;font-family:Sora,sans-serif}
+.steps b{display:block}
+.steps span{color:var(--text-2);font-size:14px}
+
+/* briefing */
+.prog{display:flex;align-items:center;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:20px;box-shadow:var(--shadow);position:sticky;top:68px;z-index:5}
+.ring{--p:0;width:54px;height:54px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center;flex:none;transition:background .3s}
+.ring i{width:42px;height:42px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+.prog .t{flex:1;min-width:0}
+.prog .t b{display:block;font-family:Sora,sans-serif;font-size:15px}
+.prog .t span{font-size:13px;color:var(--text-2)}
+.blk{margin:30px 0}
+.blk h3{font-size:19px;display:flex;gap:10px;align-items:baseline;margin-bottom:2px}
+.blk h3 span{color:var(--peri-ink);font-size:13px;font-weight:600}
+.blk .sub{color:var(--text-2);margin:0 0 12px;font-size:14px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:10px;transition:border-color .3s}
+.q label{display:block;font-weight:600;margin-bottom:2px}
+.q .why{font-size:13px;color:var(--muted-ink);margin:0 0 8px}
+.q .pre{font-size:13px;color:var(--teal-ink);margin:0 0 8px}
+textarea{width:100%;min-height:72px;resize:vertical;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;transition:border-color .2s}
+textarea:focus{border-color:var(--peri)}
 .q.done{border-color:var(--teal)}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 8px}
-.note{font-size:13px;color:var(--muted)}
-footer{padding:32px 0 56px;color:var(--muted);font-size:13px}
-.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);background:var(--navy-d);color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none;font-size:14px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 8px}
+.note{font-size:13px;color:var(--muted-ink)}
+
+/* time e skills */
+.agent{display:flex;gap:14px}
+.avatar{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:Sora,sans-serif;font-weight:700}
+.agent h3{margin:0 0 2px;font-size:16px}
+.agent .role{font-size:13px;color:var(--peri-ink);font-weight:600;margin-bottom:4px}
+.group{margin:26px 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-ink);font-weight:600}
+.skill{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.skill code{font-size:13px;font-weight:600}
+.skill p{margin-top:2px}
+
+/* instalação */
+.chk{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;transition:border-color .3s,opacity .3s}
+.chk input{flex:none;width:22px;height:22px;margin-top:2px;accent-color:var(--accent)}
+.chk.ok{border-color:var(--teal);opacity:.78}
+.chk b{display:block}
+.chk span.d{font-size:14px;color:var(--text-2)}
+.code{display:flex;align-items:center;gap:8px;margin-top:8px;background:var(--navy-dd);color:#cfd8f2;border-radius:10px;padding:8px 8px 8px 12px;font-family:ui-monospace,Consolas,monospace;font-size:13px}
+.code code{flex:1;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}
+.code button{flex:none;font:inherit;font-size:12px;font-weight:600;border:0;border-radius:8px;padding:0 10px;min-height:32px;background:#7B8DC8;color:#080F1C;cursor:pointer}
+
+/* repositório */
+.repo{background:linear-gradient(160deg,#112338,#1D3A5F);color:#fff;border-radius:20px;padding:26px;position:relative;overflow:hidden}
+.repo::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(123,141,200,.45),transparent 65%)}
+.repo h3{font-size:22px;margin-bottom:6px;position:relative}
+.repo p{color:rgba(255,255,255,.8);margin:0 0 16px;position:relative;max-width:52ch}
+.repo .btn{position:relative}
+.tree{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px;overflow-x:auto;line-height:1.9}
+.tree small{color:var(--muted-ink)}
+
+/* revelar ao rolar */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.hero .rise{opacity:0;transform:translateY(16px);animation:in .8s var(--ease) forwards}
+.hero .rise:nth-child(2){animation-delay:.1s}.hero .rise:nth-child(3){animation-delay:.2s}.hero .rise:nth-child(4){animation-delay:.3s}.hero .rise:nth-child(5){animation-delay:.4s}.hero .rise:nth-child(6){animation-delay:.5s}
+
+footer{border-top:1px solid var(--line);padding:26px 0 48px;color:var(--muted-ink);font-size:13px}
+.note{color:var(--muted-ink)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);background:var(--navy-d);color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none;font-size:14px;z-index:50}
 .toast.on{opacity:1;transform:translateX(-50%)}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-@media print{.bar,.actions,.hero::after{display:none}.hero{background:none;color:#000;padding:0}.hero p,.chip,.eyebrow{color:#000}}
+
+@media (max-width:640px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero{padding:36px 0 44px}
+  .hero-logo{height:44px;margin-bottom:24px}
+  .brand img{height:24px}
+  .prog{top:64px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv,.hero .rise{opacity:1;transform:none}
+}
+@media print{.top,.hero,.actions,.prog,.orb{display:none!important}.panel{display:block!important;padding:0}.rv{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<header class="top">
   <div class="wrap">
-    <div class="eyebrow">Marketing · Onboarding</div>
-    <h1>Vamos alinhar o marketing <em>desde o primeiro dia.</em></h1>
-    <p>Um roteiro curto para responder junto com a gestão: marcas, redes, fluxo de aprovação, ferramentas e o que é prioridade. As respostas ficam salvas só neste navegador.</p>
-    <div class="chips"><span class="chip">Instagram</span><span class="chip">Produtos</span><span class="chip">Fluxo de trabalho</span><span class="chip">Identidade visual</span></div>
+    <a class="brand" href="#inicio" aria-label="Início"><img src="assets/logo.png" alt="Promáxima Gestão Estratégica"></a>
+    <nav class="tabs" role="tablist" aria-label="Seções" id="tabs"></nav>
+    <button class="theme" id="theme" type="button" aria-label="Alternar tema claro e escuro">◐</button>
   </div>
 </header>
 
-<div class="bar" role="region" aria-label="Progresso">
+<main>
+
+<!-- INÍCIO -->
+<section class="panel" id="p-inicio" role="tabpanel" data-tab="inicio" aria-labelledby="t-inicio">
+  <div class="hero" style="margin-top:-36px">
+    <div class="grid-bg"></div><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+    <div class="wrap">
+      <img class="hero-logo rise" src="assets/logo.png" alt="Promáxima Gestão Estratégica">
+      <div class="eyebrow rise">Marketing · Central de onboarding</div>
+      <h1 class="rise">Marketing alinhado <em>desde o primeiro dia.</em></h1>
+      <p class="lead rise">Tudo que precisamos para começar bem: briefing para responder juntos, o time de apoio, as ferramentas e o passo a passo de instalação. Num só link.</p>
+      <div class="cta-row rise">
+        <button class="btn light" data-go="briefing" type="button">Começar o briefing</button>
+        <button class="btn ghost-w" data-go="repositorio" type="button">Abrir o repositório</button>
+      </div>
+      <div class="stats rise" aria-label="A empresa em números">
+        <div class="stat"><b data-n="2012" data-plain>0</b><span>fundação</span></div>
+        <div class="stat"><b data-n="1000" data-suf="+">0</b><span>clientes</span></div>
+        <div class="stat"><b data-n="26" data-suf=" UFs">0</b><span>+ DF atendidos</span></div>
+        <div class="stat"><b data-n="3">0</b><span>produtos próprios</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" style="padding-top:40px">
+    <h2 class="sec-h rv">O que tem aqui</h2>
+    <p class="sec-sub rv">Cada aba é uma parte do trabalho. Dá para seguir na ordem ou ir direto no que precisar.</p>
+    <div class="cards" id="home-cards"></div>
+    <h2 class="sec-h rv" style="margin-top:44px">Como usar no primeiro dia</h2>
+    <p class="sec-sub rv">Três passos, sem pressa.</p>
+    <ol class="steps">
+      <li class="rv"><div><b>Abrir a aba Briefing</b><span>Responder junto com a gestão. Cada resposta fica salva neste navegador.</span></div></li>
+      <li class="rv"><div><b>Copiar as respostas</b><span>Um botão gera o resumo pronto para alimentar o assistente de marketing.</span></div></li>
+      <li class="rv"><div><b>Seguir a aba Instalação</b><span>Com as respostas na mão, montar o ambiente de trabalho em poucos passos.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- BRIEFING -->
+<section class="panel" id="p-briefing" role="tabpanel" data-tab="briefing" aria-labelledby="t-briefing">
   <div class="wrap">
-    <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
-    <div class="count" id="count">0 de 0</div>
-    <button class="btn ghost" id="theme" type="button" aria-label="Alternar tema">Tema</button>
+    <h2 class="sec-h">Briefing de marketing</h2>
+    <p class="sec-sub">26 perguntas curtas para responder junto com a gestão. Pode pular o que ainda não souber, o sistema avisa depois o que ficou em aberto.</p>
+    <div class="prog" role="status" aria-live="polite">
+      <div class="ring" id="ring"><i id="ringn">0%</i></div>
+      <div class="t"><b id="pcount">0 de 26 respondidas</b><span id="pmsg">Vamos começar.</span></div>
+      <button class="btn" id="copy" type="button">Copiar respostas</button>
+    </div>
+    <div id="app"></div>
+    <div class="actions">
+      <button class="btn" id="copy2" type="button">Copiar respostas (Markdown)</button>
+      <button class="btn ghost" id="print" type="button">Imprimir ou salvar PDF</button>
+      <button class="btn ghost" id="clear" type="button">Limpar tudo</button>
+    </div>
+    <p class="note">As respostas não são enviadas para nenhum servidor: ficam só neste navegador.</p>
   </div>
-</div>
+</section>
 
-<main class="wrap" id="app"></main>
-
-<div class="wrap">
-  <div class="actions">
-    <button class="btn" id="copy" type="button">Copiar respostas (Markdown)</button>
-    <button class="btn ghost" id="print" type="button">Imprimir ou salvar PDF</button>
-    <button class="btn ghost" id="clear" type="button">Limpar tudo</button>
+<!-- TIME -->
+<section class="panel" id="p-time" role="tabpanel" data-tab="time" aria-labelledby="t-time">
+  <div class="wrap">
+    <h2 class="sec-h">Time de apoio ao marketing</h2>
+    <p class="sec-sub">Um orquestrador que organiza o dia e agentes especializados que preparam, revisam e acompanham. No começo, tudo passa por revisão humana: eles organizam, planejam e revisam, a decisão final é sempre de quem assina a entrega.</p>
+    <div class="cards" id="agents"></div>
+    <p class="note" style="margin-top:14px">Nomes provisórios, podem mudar.</p>
   </div>
-  <p class="note">Dica: depois de responder, clique em "Copiar respostas" e cole no assistente de marketing para ele montar as marcas, o calendário e o fluxo.</p>
-</div>
+</section>
 
-<footer><div class="wrap">Roteiro de onboarding de marketing. Nenhuma resposta é enviada para servidor: tudo fica no seu navegador.</div></footer>
+<!-- SKILLS -->
+<section class="panel" id="p-skills" role="tabpanel" data-tab="skills" aria-labelledby="t-skills">
+  <div class="wrap">
+    <h2 class="sec-h">Skills e ferramentas</h2>
+    <p class="sec-sub">A base inicial. O restante entra conforme a necessidade do dia a dia.</p>
+    <div id="skills"></div>
+  </div>
+</section>
+
+<!-- INSTALAÇÃO -->
+<section class="panel" id="p-instalacao" role="tabpanel" data-tab="instalacao" aria-labelledby="t-instalacao">
+  <div class="wrap">
+    <h2 class="sec-h">Instalação passo a passo</h2>
+    <p class="sec-sub">Marque cada item conforme for concluindo. O progresso fica salvo.</p>
+    <div id="install"></div>
+  </div>
+</section>
+
+<!-- REPOSITÓRIO -->
+<section class="panel" id="p-repositorio" role="tabpanel" data-tab="repositorio" aria-labelledby="t-repositorio">
+  <div class="wrap">
+    <h2 class="sec-h">Repositório do kit</h2>
+    <p class="sec-sub">Tudo o que foi preparado, em um lugar só.</p>
+    <div class="repo rv">
+      <span class="tag" style="background:rgba(255,255,255,.15);color:#fff;position:relative">Privado</span>
+      <h3 style="margin-top:12px">nino-trabalho-kit</h3>
+      <p>Vault, agentes, skills, identidade da marca e esta página. O acesso é pela conta do GitHub da Julia: entre com ela antes de abrir o link.</p>
+      <a class="btn light" href="https://github.com/impactocriativosoriginal-bit/nino-trabalho-kit" target="_blank" rel="noopener">Abrir no GitHub ↗</a>
+    </div>
+    <div class="group">O que tem dentro</div>
+    <div class="cards" id="repo-items"></div>
+    <div class="tree rv">
+      <div>nino-trabalho-kit/</div>
+      <div>├─ onboarding/ <small>esta página</small></div>
+      <div>├─ marca/ <small>logo e tokens da identidade</small></div>
+      <div>├─ skills/criar-pagina/ <small>como o assistente cria páginas</small></div>
+      <div>├─ vault/ <small>estrutura de pastas e constituição (em breve)</small></div>
+      <div>├─ agentes/ <small>time de apoio (em breve)</small></div>
+      <div>└─ hooks/ <small>painel de início e captura (em breve)</small></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">Central de onboarding de marketing. Nenhuma resposta é enviada para servidor.</div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
-const BLOCKS = [
- {t:"Marcas e produtos", s:"O que vamos comunicar e para quem.", q:[
-  {id:"marcas", l:"Quais marcas e produtos entram no marketing?", w:"Define as pastas e o time de conteúdo.", pre:"Do site: Fonte de Preços (confirmar), LiciteGov, CotaçõesGov, além da marca institucional."},
-  {id:"instas", l:"Qual o @ do Instagram de cada marca ou produto?", w:"Um perfil institucional e um por produto?", pre:"Já conhecido: @promaximagestao"},
-  {id:"publico", l:"Quem é o público de cada produto?", w:"Gestores públicos, pregoeiros, fornecedores, empresas privadas.", pre:"Do site: órgãos públicos e fornecedores de licitação."},
-  {id:"prioridade", l:"Qual marca ou produto é prioridade agora?", w:"Para focar o primeiro mês."}
- ]},
- {t:"Redes e entregas", s:"O que eu entrego, quanto e onde.", q:[
-  {id:"redes", l:"Quais redes são ativas? (Instagram, LinkedIn, YouTube, outras)", w:"Cada rede tem formato e tom diferentes."},
-  {id:"freq", l:"Qual a frequência esperada de posts por perfil?", w:"Semana, quinzena, mensal."},
-  {id:"formatos", l:"Quais formatos são usados? (feed, carrossel, reels, stories, impresso, apresentação)", w:"Impresso e vídeo exigem preparo à parte."},
-  {id:"metas", l:"Qual o objetivo do marketing neste semestre?", w:"Leads, autoridade, divulgação de produto, eventos."}
- ]},
- {t:"Fluxo e aprovação", s:"Quem decide e como o trabalho anda.", q:[
-  {id:"aprova", l:"Quem aprova cada tipo de peça? Em qual prazo?", w:"Evita retrabalho e post parado."},
-  {id:"pedido", l:"Como chegam os pedidos para o marketing?", w:"WhatsApp, e-mail, reunião, ferramenta de tarefas."},
-  {id:"reuniao", l:"Existe reunião fixa de alinhamento? Quando?", w:"Usamos para pauta e revisão."},
-  {id:"urgencia", l:"O que conta como urgente e como é tratado?"}
- ]},
- {t:"Identidade visual e voz", s:"Para tudo sair com a cara da empresa.", q:[
-  {id:"manual", l:"Existe manual de marca? Onde estão logos, fontes e modelos?", w:"Peço os arquivos para guardar no kit de marcas."},
-  {id:"tom", l:"Como a empresa quer soar? Tem palavras proibidas ou preferidas?", w:"Setor público pede tom técnico e seguro."},
-  {id:"refs", l:"Perfis ou materiais que a empresa admira como referência?"},
-  {id:"concorr", l:"Quem são os concorrentes ou perfis do mesmo setor que devo acompanhar?"}
- ]},
- {t:"Ferramentas e acessos", s:"Eu defino o fluxo, a gestão me avisa do que for obrigatório.", q:[
-  {id:"tarefas", l:"Alguma ferramenta é obrigatória? (Trello, Notion, Drive, Canva, Meta Business Suite)", w:"Se não houver, eu monto o fluxo."},
-  {id:"acessos", l:"Quais acessos vou receber? (Instagram, Meta, Drive, e-mail, analytics)", w:"Quem libera e em que prazo."},
-  {id:"ia", l:"Existe alguma regra para uso de IA e dados da empresa?", w:"Confirmo o que posso colocar nas ferramentas."},
-  {id:"orcamento", l:"Há verba para anúncios, banco de imagens ou ferramentas?"}
- ]},
- {t:"Métricas e relatórios", s:"Como a gestão enxerga o resultado.", q:[
-  {id:"kpis", l:"Quais números a gestão acompanha? (alcance, leads, seguidores, cliques)"},
-  {id:"relat", l:"Quem recebe o relatório, em qual formato e com qual frequência?"},
-  {id:"hist", l:"Existe histórico de posts e resultados que eu possa estudar?"}
- ]},
- {t:"Primeiros 30 dias", s:"Para fechar com uma ação clara.", q:[
-  {id:"primeira", l:"Qual a primeira entrega esperada de mim?", w:"Data e formato."},
-  {id:"nao", l:"O que NÃO devo fazer ou publicar sem alinhar antes?"},
-  {id:"extra", l:"Algo que ainda não perguntei e eu deveria saber?"}
- ]}
-];
-const KEY="onboarding-marketing-v1";
-let data={};
-try{data=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){data={}}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}};
-const app=document.getElementById("app");
-let total=0;
-BLOCKS.forEach((b,i)=>{
-  const s=document.createElement("section");s.className="blk";
-  const h=document.createElement("h2");h.innerHTML="<span>"+String(i+1).padStart(2,"0")+"</span>";h.append(b.t);
-  const sub=document.createElement("p");sub.className="sub";sub.textContent=b.s;
-  s.append(h,sub);
-  b.q.forEach(q=>{
-    total++;
-    const d=document.createElement("div");d.className="q";d.id="q-"+q.id;
-    const l=document.createElement("label");l.htmlFor="t-"+q.id;l.textContent=q.l;
-    d.append(l);
-    if(q.w){const w=document.createElement("p");w.className="why";w.textContent=q.w;d.append(w)}
-    if(q.pre){const p=document.createElement("p");p.className="pre";p.textContent=q.pre;d.append(p)}
-    const t=document.createElement("textarea");t.id="t-"+q.id;t.value=data[q.id]||"";
-    t.addEventListener("input",()=>{data[q.id]=t.value;save();refresh()});
-    d.append(t);s.append(d);
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const ICON={
+  home:'<path d="M3 11l9-8 9 8M5 10v10h14V10"/>',
+  list:'<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>',
+  users:'<circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5M16 4.8a3.2 3.2 0 010 6.4M18 14.8c1.9.6 3 2.3 3 5.2"/>',
+  spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z"/>',
+  down:'<path d="M12 3v12M7 11l5 5 5-5M4 20h16"/>',
+  git:'<circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><circle cx="18" cy="9" r="2.4"/><path d="M6 8.4v7.2M18 11.4c0 3.6-6 2.4-6 6.6"/>',
+  pen:'<path d="M4 20l4-1 11-11-3-3L5 16zM14 6l3 3"/>',
+  cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+  img:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/>',
+  play:'<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/>',
+  chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  folder:'<path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>',
+  brush:'<path d="M9 14a3 3 0 00-3 3c0 1.7-1 3-3 3 3 1 7 .5 8.5-2.2zM20 4l-9 9 2 2 9-9z"/>'
+};
+const ic=n=>'<span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true">'+ICON[n]+'</svg></span>';
+
+const TABS=[["inicio","Início"],["briefing","Briefing"],["time","Time"],["skills","Skills"],["instalacao","Instalação"],["repositorio","Repositório"]];
+const tabs=$("#tabs");
+TABS.forEach(([id,l],i)=>{
+  const b=document.createElement("button");
+  b.className="tab";b.id="t-"+id;b.type="button";b.role="tab";b.textContent=l;b.dataset.id=id;
+  b.setAttribute("aria-controls","p-"+id);b.onclick=()=>go(id);
+  b.addEventListener("keydown",e=>{
+    const k={ArrowRight:1,ArrowLeft:-1}[e.key];if(!k)return;
+    const n=TABS[(i+k+TABS.length)%TABS.length][0];go(n);$("#t-"+n).focus();
   });
-  app.append(s);
+  tabs.append(b);
 });
-function refresh(){
-  let n=0;
-  BLOCKS.forEach(b=>b.q.forEach(q=>{
-    const ok=(data[q.id]||"").trim().length>0;if(ok)n++;
-    document.getElementById("q-"+q.id).classList.toggle("done",ok);
-  }));
-  document.getElementById("count").textContent=n+" de "+total;
-  document.getElementById("fill").style.width=(n/total*100)+"%";
+function go(id,push=true){
+  if(!TABS.some(t=>t[0]===id))id="inicio";
+  $$(".panel").forEach(p=>p.classList.toggle("on",p.dataset.tab===id));
+  $$(".tab").forEach(t=>{const on=t.dataset.id===id;t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1;if(on)t.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})});
+  if(push)history.replaceState(null,"","#"+id);
+  window.scrollTo({top:0,behavior:"auto"});
+  setTimeout(reveal,30);
+  if(id==="inicio")countUp();
 }
+$$("[data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+/* cartões da home */
+const HOME=[["briefing","list","Briefing","26 perguntas para responder com a gestão. Salva sozinho."],["time","users","Time de apoio","Quem faz o quê no marketing assistido por IA."],["skills","spark","Skills","Texto, design, vídeo e dados: a base de ferramentas."],["instalacao","down","Instalação","Do zero ao ambiente pronto, com checklist."],["repositorio","git","Repositório","Todo o material, num lugar só."]];
+$("#home-cards").innerHTML=HOME.map(([id,i,t,d])=>'<button class="card rv" type="button" data-go="'+id+'">'+ic(i)+'<h3>'+t+'</h3><p>'+d+'</p></button>').join("");
+$$("#home-cards [data-go]").forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+/* time */
+const AGENTS=[
+ ["Nino do Trabalho","Orquestrador","Lê o foco do dia, distribui as tarefas, guarda a memória do trabalho e revisa antes de qualquer entrega.","#1D3A5F","N"],
+ ["Pauta","Planejamento","Calendário editorial, ideias de post e organização por marca e produto.","#2E8B8A","P"],
+ ["Verbo","Textos","Posts, legendas, e-mails e documentos, com revisão para soar natural e na voz da empresa.","#6B5BB5","V"],
+ ["Gigi","Design","Posts, carrosséis e impressos na identidade visual da empresa.","#3A6EA8","G"],
+ ["Senna","Vídeo","Vídeos curtos para Instagram, feitos em HTML animado.","#7B8DC8","S"],
+ ["Hel","Métricas","Números, relatórios e leitura de resultado para a gestão.","#4BB8C8","H"],
+ ["Mel","Rotina","Prioridades do dia, prazos e fechamento da semana.","#C8AA50","M"]
+];
+$("#agents").innerHTML=AGENTS.map(([n,r,d,c,l])=>'<div class="card agent rv"><div class="avatar" style="background:'+c+'">'+l+'</div><div><h3>'+n+'</h3><div class="role">'+r+'</div><p>'+d+'</p></div></div>').join("");
+
+/* skills */
+const SK=[
+ ["Texto",[["copywriting","Escrever e reescrever texto de marketing","Do setup"],["copy-editing","Revisão em passadas, com checklist","Do setup"],["humanizer","Tira o jeito de texto de IA, em 26 padrões","Novo"],["content-strategy","O que publicar e por quê","Do setup"]]],
+ ["Planejamento e social",[["social","Estratégia e rotina de redes sociais","Novo"],["marketing-plan","Plano de marketing completo","Novo"],["marketing-ideas","Banco de ideias por objetivo","Novo"],["product-marketing","Posicionamento e comunicação de produto","Novo"],["customer-research","Entender público e dores","Novo"]]],
+ ["Design e páginas",[["criar-pagina","Páginas e apresentações na identidade da empresa","Do kit"],["design-taste-frontend","Direção de arte contra o visual genérico","Do setup"],["impeccable","Crítica, revisão e acabamento de interface","Do setup"],["better-layout, typography, colors","Conferência por assunto","Do setup"]]],
+ ["Vídeo e movimento",[["hyperframes","Vídeos em HTML animado, para Instagram","Do setup"],["animate","Animação com critério","Do setup"],["gsap","Movimento avançado em páginas","Do setup"]]],
+ ["Dados",[["dataviz","Gráficos e painéis legíveis","Do setup"],["analytics-tracking","Mensuração e eventos","Do setup"]]]
+];
+$("#skills").innerHTML=SK.map(([g,items])=>'<div class="group">'+g+'</div><div class="cards">'+items.map(([n,d,t])=>'<div class="card skill rv"><div><code>'+n+'</code><p>'+d+'</p></div><span class="tag '+(t==="Novo"?"new":"")+'">'+t+'</span></div>').join("")+'</div>').join("");
+
+/* repo itens */
+const RI=[["folder","brush","marca/","Logo e tokens de cor e fonte da identidade visual.","pronto"],["folder","pen","skills/criar-pagina","Como o assistente cria páginas bonitas e rápidas.","pronto"],["folder","list","onboarding/","Esta central, para reaproveitar em outros briefings.","pronto"],["folder","folder","vault/","Estrutura de pastas e constituição do assistente.","em breve"],["folder","users","agentes/","Arquivos de cada agente do time.","em breve"],["folder","cal","hooks/","Painel de início do dia e captura automática.","em breve"]];
+$("#repo-items").innerHTML=RI.map(([,i,n,d,s])=>'<div class="card rv">'+ic(i)+'<h3 style="font-family:ui-monospace,Consolas,monospace;font-size:15px">'+n+'</h3><p>'+d+'</p><div style="margin-top:8px"><span class="tag '+(s==="pronto"?"new":"soon")+'">'+s+'</span></div></div>').join("");
+
+/* instalação */
+const IN=[
+ ["Instalar o Obsidian","Aplicativo de notas onde a memória do trabalho vai morar. Baixar em obsidian.md.",null],
+ ["Instalar Node.js e Git","Necessários para o Claude Code e para baixar o kit.",null],
+ ["Instalar o Claude Code","Entrar com a conta Claude fornecida pela empresa.","npm install -g @anthropic-ai/claude-code"],
+ ["Instalar o Maestri","Painel onde os agentes trabalham à vista. Mesmo instalador do ambiente de casa.",null],
+ ["Baixar o kit","Entrar no GitHub com a conta da Julia (repositório privado) e clonar.","git clone https://github.com/impactocriativosoriginal-bit/nino-trabalho-kit.git"],
+ ["Instalar o pacote de marketing","Reúne as skills de social, plano, texto e pesquisa.","npx skills add coreyhaines31/marketingskills"],
+ ["Instalar o Humanizer","Dentro do Claude Code, em dois comandos.","/plugin marketplace add blader/humanizer\n/plugin install humanizer@humanizer"],
+ ["Abrir o vault no Obsidian","Abrir a pasta do kit como vault e conferir se as pastas aparecem.",null],
+ ["Abrir o Claude Code na pasta do vault","Pedir: \"leia o CLAUDE.md e me entreviste com o briefing\" e colar as respostas copiadas.",null]
+];
+const CK="onb-install-v1";let ck={};try{ck=JSON.parse(localStorage.getItem(CK)||"{}")}catch(e){}
+$("#install").innerHTML=IN.map(([t,d,c],i)=>'<div class="chk rv" id="c'+i+'"><input type="checkbox" id="k'+i+'" aria-label="'+t+'"><div style="flex:1;min-width:0"><b><label for="k'+i+'">'+(i+1)+'. '+t+'</label></b><span class="d">'+d+'</span>'+(c?c.split("\n").map(l=>'<div class="code"><code>'+l+'</code><button type="button" data-cp="'+l.replace(/"/g,"&quot;")+'">Copiar</button></div>').join(""):"")+'</div></div>').join("");
+IN.forEach((_,i)=>{const k=$("#k"+i);k.checked=!!ck[i];$("#c"+i).classList.toggle("ok",k.checked);
+  k.onchange=()=>{ck[i]=k.checked;$("#c"+i).classList.toggle("ok",k.checked);try{localStorage.setItem(CK,JSON.stringify(ck))}catch(e){}}});
+document.addEventListener("click",async e=>{const b=e.target.closest("[data-cp]");if(!b)return;
+  try{await navigator.clipboard.writeText(b.dataset.cp);toast("Comando copiado")}catch(x){toast("Não consegui copiar")}});
+
+/* briefing */
+const BLOCKS=[
+ {t:"Marcas e produtos",s:"O que vamos comunicar e para quem.",q:[
+  {id:"marcas",l:"Quais marcas e produtos entram no marketing?",w:"Define as pastas e o time de conteúdo.",pre:"Do site: Fonte de Preços (confirmar), LiciteGov, CotaçõesGov, além da marca institucional."},
+  {id:"instas",l:"Qual o @ do Instagram de cada marca ou produto?",w:"Um perfil institucional e um por produto?",pre:"Já conhecido: @promaximagestao"},
+  {id:"publico",l:"Quem é o público de cada produto?",w:"Gestores públicos, pregoeiros, fornecedores, empresas privadas.",pre:"Do site: órgãos públicos e fornecedores de licitação."},
+  {id:"prioridade",l:"Qual marca ou produto é prioridade agora?",w:"Para focar o primeiro mês."}]},
+ {t:"Redes e entregas",s:"O que eu entrego, quanto e onde.",q:[
+  {id:"redes",l:"Quais redes são ativas? (Instagram, LinkedIn, YouTube, outras)",w:"Cada rede tem formato e tom diferentes."},
+  {id:"freq",l:"Qual a frequência esperada de posts por perfil?",w:"Semana, quinzena, mensal."},
+  {id:"formatos",l:"Quais formatos são usados? (feed, carrossel, reels, stories, impresso, apresentação)",w:"Impresso e vídeo exigem preparo à parte."},
+  {id:"metas",l:"Qual o objetivo do marketing neste semestre?",w:"Leads, autoridade, divulgação de produto, eventos."}]},
+ {t:"Fluxo e aprovação",s:"Quem decide e como o trabalho anda.",q:[
+  {id:"aprova",l:"Quem aprova cada tipo de peça? Em qual prazo?",w:"Evita retrabalho e post parado."},
+  {id:"pedido",l:"Como chegam os pedidos para o marketing?",w:"WhatsApp, e-mail, reunião, ferramenta de tarefas."},
+  {id:"reuniao",l:"Existe reunião fixa de alinhamento? Quando?",w:"Usamos para pauta e revisão."},
+  {id:"urgencia",l:"O que conta como urgente e como é tratado?"}]},
+ {t:"Identidade visual e voz",s:"Para tudo sair com a cara da empresa.",q:[
+  {id:"manual",l:"Existe manual de marca? Onde estão logos, fontes e modelos?",w:"Peço os arquivos para guardar no kit de marcas."},
+  {id:"tom",l:"Como a empresa quer soar? Tem palavras proibidas ou preferidas?",w:"Setor público pede tom técnico e seguro."},
+  {id:"refs",l:"Perfis ou materiais que a empresa admira como referência?"},
+  {id:"concorr",l:"Quem são os concorrentes ou perfis do mesmo setor que devo acompanhar?"}]},
+ {t:"Ferramentas e acessos",s:"Eu defino o fluxo, a gestão avisa do que for obrigatório.",q:[
+  {id:"tarefas",l:"Alguma ferramenta é obrigatória? (Trello, Notion, Drive, Canva, Meta Business Suite)",w:"Se não houver, eu monto o fluxo."},
+  {id:"acessos",l:"Quais acessos vou receber? (Instagram, Meta, Drive, e-mail, analytics)",w:"Quem libera e em que prazo."},
+  {id:"ia",l:"Existe alguma regra para uso de IA e dados da empresa?",w:"Confirmo o que posso colocar nas ferramentas."},
+  {id:"orcamento",l:"Há verba para anúncios, banco de imagens ou ferramentas?"}]},
+ {t:"Métricas e relatórios",s:"Como a gestão enxerga o resultado.",q:[
+  {id:"kpis",l:"Quais números a gestão acompanha? (alcance, leads, seguidores, cliques)"},
+  {id:"relat",l:"Quem recebe o relatório, em qual formato e com qual frequência?"},
+  {id:"hist",l:"Existe histórico de posts e resultados que eu possa estudar?"}]},
+ {t:"Primeiros 30 dias",s:"Para fechar com uma ação clara.",q:[
+  {id:"primeira",l:"Qual a primeira entrega esperada de mim?",w:"Data e formato."},
+  {id:"nao",l:"O que NÃO devo fazer ou publicar sem alinhar antes?"},
+  {id:"extra",l:"Algo que ainda não perguntei e eu deveria saber?"}]}
+];
+const KEY="onboarding-marketing-v1";let data={};try{data=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}};
+const app=$("#app");let total=0;
+BLOCKS.forEach((b,i)=>{
+  const s=document.createElement("section");s.className="blk rv";
+  s.innerHTML='<h3><span>'+String(i+1).padStart(2,"0")+'</span>'+b.t+'</h3><p class="sub">'+b.s+'</p>';
+  b.q.forEach(q=>{total++;
+    const d=document.createElement("div");d.className="q";d.id="q-"+q.id;
+    d.innerHTML='<label for="t-'+q.id+'">'+q.l+'</label>'+(q.w?'<p class="why">'+q.w+'</p>':"")+(q.pre?'<p class="pre">'+q.pre+'</p>':"")+'<textarea id="t-'+q.id+'"></textarea>';
+    const t=d.querySelector("textarea");t.value=data[q.id]||"";
+    t.addEventListener("input",()=>{data[q.id]=t.value;save();refresh()});
+    s.append(d)});
+  app.append(s)});
+const MSG=["Vamos começar.","Bom começo.","Metade do caminho.","Falta pouco.","Tudo respondido. Agora é só copiar."];
+function refresh(){let n=0;
+  BLOCKS.forEach(b=>b.q.forEach(q=>{const ok=(data[q.id]||"").trim().length>0;if(ok)n++;$("#q-"+q.id).classList.toggle("done",ok)}));
+  const p=Math.round(n/total*100);
+  $("#ring").style.setProperty("--p",p);$("#ringn").textContent=p+"%";
+  $("#pcount").textContent=n+" de "+total+" respondidas";
+  $("#pmsg").textContent=p===0?MSG[0]:p<35?MSG[1]:p<65?MSG[2]:p<100?MSG[3]:MSG[4];}
 refresh();
-const toast=m=>{const t=document.getElementById("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2200)};
-document.getElementById("copy").onclick=async()=>{
-  let md="# Briefing de onboarding de marketing\n\n";
+const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2200)};
+const copyAll=async()=>{let md="# Briefing de onboarding de marketing\n\n";
   BLOCKS.forEach(b=>{md+="## "+b.t+"\n\n";b.q.forEach(q=>{md+="**"+q.l+"**\n"+((data[q.id]||"").trim()||"(sem resposta)")+"\n\n"})});
-  try{await navigator.clipboard.writeText(md);toast("Respostas copiadas")}catch(e){toast("Não consegui copiar, selecione e copie à mão")}
-};
-document.getElementById("print").onclick=()=>window.print();
-document.getElementById("clear").onclick=()=>{
-  if(!confirm("Apagar todas as respostas deste navegador?"))return;
-  data={};save();BLOCKS.forEach(b=>b.q.forEach(q=>document.getElementById("t-"+q.id).value=""));refresh();
-};
+  try{await navigator.clipboard.writeText(md);toast("Respostas copiadas")}catch(e){toast("Não consegui copiar, selecione e copie à mão")}};
+$("#copy").onclick=copyAll;$("#copy2").onclick=copyAll;
+$("#print").onclick=()=>window.print();
+$("#clear").onclick=()=>{if(!confirm("Apagar todas as respostas deste navegador?"))return;
+  data={};save();BLOCKS.forEach(b=>b.q.forEach(q=>$("#t-"+q.id).value=""));refresh()};
+
+/* tema */
 const root=document.documentElement;
 try{const th=localStorage.getItem("onb-theme");if(th)root.dataset.theme=th}catch(e){}
-document.getElementById("theme").onclick=()=>{
-  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
-  root.dataset.theme=dark?"light":"dark";try{localStorage.setItem("onb-theme",root.dataset.theme)}catch(e){}
-};
+$("#theme").onclick=()=>{const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+  root.dataset.theme=dark?"light":"dark";try{localStorage.setItem("onb-theme",root.dataset.theme)}catch(e){}};
+
+/* revelar e contar */
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let io;
+function reveal(){
+  if(reduce||!("IntersectionObserver" in window)){$$(".rv").forEach(e=>e.classList.add("on"));return}
+  io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}}),{threshold:.08});
+  $$(".panel.on .rv:not(.on)").forEach((e,i)=>{e.style.transitionDelay=Math.min(i%6,5)*60+"ms";io.observe(e)});
+}
+let counted=false;
+function countUp(){
+  if(counted)return;counted=true;
+  $$("[data-n]").forEach(el=>{const to=+el.dataset.n,suf=el.dataset.suf||"",plain=el.hasAttribute("data-plain");
+    const fmt=v=>(plain?String(v):v.toLocaleString("pt-BR"))+suf;
+    if(reduce){el.textContent=fmt(to);return}
+    const t0=performance.now(),dur=1300;
+    const step=t=>{const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(to*e));if(p<1)requestAnimationFrame(step)};
+    requestAnimationFrame(step)});
+}
+addEventListener("hashchange",()=>go(location.hash.slice(1),false));
+go(location.hash.slice(1)||"inicio",false);
 </script>
 </body>
 </html>
