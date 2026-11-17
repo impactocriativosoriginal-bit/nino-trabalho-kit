@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Onboarding de Marketing</title>
+<meta name="description" content="Briefing de onboarding do time de marketing, para responder junto com a gestão.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1D3A5F; --navy-d:#112338; --navy-dd:#080F1C; --peri:#7B8DC8; --peri-l:#A8B4DC;
+  --peri-pale:#E8ECFA; --off:#F4F6FB; --muted:#6B7A99; --border:#DDE2F0; --teal:#2E8B8A; --gold:#C8AA50;
+  --bg:var(--off); --surface:#fff; --text:#112338; --text-2:#4A5568; --line:var(--border);
+  --hero-bg:linear-gradient(160deg,#080F1C 0%,#112338 55%,#1D3A5F 100%);
+  --accent:#1D3A5F; --accent-ink:#fff; --focus:#7B8DC8;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#080F1C; --surface:#112338; --text:#E8ECFA; --text-2:#A8B4DC; --line:#25405f;
+    --accent:#7B8DC8; --accent-ink:#080F1C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#080F1C; --surface:#112338; --text:#E8ECFA; --text-2:#A8B4DC; --line:#25405f;
+  --accent:#7B8DC8; --accent-ink:#080F1C;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.2;margin:0}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+.hero{background:var(--hero-bg);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(123,141,200,.35),transparent 65%)}
+.eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--peri-l);font-weight:600}
+.hero h1{font-size:clamp(30px,6vw,46px);margin:14px 0 16px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--peri-l)}
+.hero p{max-width:560px;color:rgba(255,255,255,.78);margin:0 0 24px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid rgba(168,180,220,.4);color:var(--peri-l);border-radius:999px;padding:4px 12px;font-size:13px}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.track{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--accent);transition:width .3s}
+.count{font-size:13px;color:var(--text-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+.btn{font:inherit;font-weight:600;font-size:14px;border:0;border-radius:10px;padding:10px 16px;background:var(--accent);color:var(--accent-ink);cursor:pointer;min-height:44px}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn:hover{filter:brightness(1.08)}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+section.blk{margin:36px 0}
+.blk h2{font-size:22px;margin-bottom:4px;display:flex;gap:10px;align-items:baseline}
+.blk h2 span{color:var(--peri);font-size:14px;font-weight:600}
+.blk .sub{color:var(--text-2);margin:0 0 16px;font-size:15px}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.q label{display:block;font-weight:600;margin-bottom:4px}
+.q .why{font-size:13px;color:var(--muted);margin:0 0 10px}
+.q .pre{font-size:13px;color:var(--teal);margin:0 0 10px}
+textarea{width:100%;min-height:76px;resize:vertical;font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.q.done{border-color:var(--teal)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 8px}
+.note{font-size:13px;color:var(--muted)}
+footer{padding:32px 0 56px;color:var(--muted);font-size:13px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(30px);background:var(--navy-d);color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none;font-size:14px}
+.toast.on{opacity:1;transform:translateX(-50%)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{.bar,.actions,.hero::after{display:none}.hero{background:none;color:#000;padding:0}.hero p,.chip,.eyebrow{color:#000}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Marketing · Onboarding</div>
+    <h1>Vamos alinhar o marketing <em>desde o primeiro dia.</em></h1>
+    <p>Um roteiro curto para responder junto com a gestão: marcas, redes, fluxo de aprovação, ferramentas e o que é prioridade. As respostas ficam salvas só neste navegador.</p>
+    <div class="chips"><span class="chip">Instagram</span><span class="chip">Produtos</span><span class="chip">Fluxo de trabalho</span><span class="chip">Identidade visual</span></div>
+  </div>
+</header>
+
+<div class="bar" role="region" aria-label="Progresso">
+  <div class="wrap">
+    <div class="track" aria-hidden="true"><div class="fill" id="fill"></div></div>
+    <div class="count" id="count">0 de 0</div>
+    <button class="btn ghost" id="theme" type="button" aria-label="Alternar tema">Tema</button>
+  </div>
+</div>
+
+<main class="wrap" id="app"></main>
+
+<div class="wrap">
+  <div class="actions">
+    <button class="btn" id="copy" type="button">Copiar respostas (Markdown)</button>
+    <button class="btn ghost" id="print" type="button">Imprimir ou salvar PDF</button>
+    <button class="btn ghost" id="clear" type="button">Limpar tudo</button>
+  </div>
+  <p class="note">Dica: depois de responder, clique em "Copiar respostas" e cole no assistente de marketing para ele montar as marcas, o calendário e o fluxo.</p>
+</div>
+
+<footer><div class="wrap">Roteiro de onboarding de marketing. Nenhuma resposta é enviada para servidor: tudo fica no seu navegador.</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const BLOCKS = [
+ {t:"Marcas e produtos", s:"O que vamos comunicar e para quem.", q:[
+  {id:"marcas", l:"Quais marcas e produtos entram no marketing?", w:"Define as pastas e o time de conteúdo.", pre:"Do site: Fonte de Preços (confirmar), LiciteGov, CotaçõesGov, além da marca institucional."},
+  {id:"instas", l:"Qual o @ do Instagram de cada marca ou produto?", w:"Um perfil institucional e um por produto?", pre:"Já conhecido: @promaximagestao"},
+  {id:"publico", l:"Quem é o público de cada produto?", w:"Gestores públicos, pregoeiros, fornecedores, empresas privadas.", pre:"Do site: órgãos públicos e fornecedores de licitação."},
+  {id:"prioridade", l:"Qual marca ou produto é prioridade agora?", w:"Para focar o primeiro mês."}
+ ]},
+ {t:"Redes e entregas", s:"O que eu entrego, quanto e onde.", q:[
+  {id:"redes", l:"Quais redes são ativas? (Instagram, LinkedIn, YouTube, outras)", w:"Cada rede tem formato e tom diferentes."},
+  {id:"freq", l:"Qual a frequência esperada de posts por perfil?", w:"Semana, quinzena, mensal."},
+  {id:"formatos", l:"Quais formatos são usados? (feed, carrossel, reels, stories, impresso, apresentação)", w:"Impresso e vídeo exigem preparo à parte."},
+  {id:"metas", l:"Qual o objetivo do marketing neste semestre?", w:"Leads, autoridade, divulgação de produto, eventos."}
+ ]},
+ {t:"Fluxo e aprovação", s:"Quem decide e como o trabalho anda.", q:[
+  {id:"aprova", l:"Quem aprova cada tipo de peça? Em qual prazo?", w:"Evita retrabalho e post parado."},
+  {id:"pedido", l:"Como chegam os pedidos para o marketing?", w:"WhatsApp, e-mail, reunião, ferramenta de tarefas."},
+  {id:"reuniao", l:"Existe reunião fixa de alinhamento? Quando?", w:"Usamos para pauta e revisão."},
+  {id:"urgencia", l:"O que conta como urgente e como é tratado?"}
+ ]},
+ {t:"Identidade visual e voz", s:"Para tudo sair com a cara da empresa.", q:[
+  {id:"manual", l:"Existe manual de marca? Onde estão logos, fontes e modelos?", w:"Peço os arquivos para guardar no kit de marcas."},
+  {id:"tom", l:"Como a empresa quer soar? Tem palavras proibidas ou preferidas?", w:"Setor público pede tom técnico e seguro."},
+  {id:"refs", l:"Perfis ou materiais que a empresa admira como referência?"},
+  {id:"concorr", l:"Quem são os concorrentes ou perfis do mesmo setor que devo acompanhar?"}
+ ]},
+ {t:"Ferramentas e acessos", s:"Eu defino o fluxo, a gestão me avisa do que for obrigatório.", q:[
+  {id:"tarefas", l:"Alguma ferramenta é obrigatória? (Trello, Notion, Drive, Canva, Meta Business Suite)", w:"Se não houver, eu monto o fluxo."},
+  {id:"acessos", l:"Quais acessos vou receber? (Instagram, Meta, Drive, e-mail, analytics)", w:"Quem libera e em que prazo."},
+  {id:"ia", l:"Existe alguma regra para uso de IA e dados da empresa?", w:"Confirmo o que posso colocar nas ferramentas."},
+  {id:"orcamento", l:"Há verba para anúncios, banco de imagens ou ferramentas?"}
+ ]},
+ {t:"Métricas e relatórios", s:"Como a gestão enxerga o resultado.", q:[
+  {id:"kpis", l:"Quais números a gestão acompanha? (alcance, leads, seguidores, cliques)"},
+  {id:"relat", l:"Quem recebe o relatório, em qual formato e com qual frequência?"},
+  {id:"hist", l:"Existe histórico de posts e resultados que eu possa estudar?"}
+ ]},
+ {t:"Primeiros 30 dias", s:"Para fechar com uma ação clara.", q:[
+  {id:"primeira", l:"Qual a primeira entrega esperada de mim?", w:"Data e formato."},
+  {id:"nao", l:"O que NÃO devo fazer ou publicar sem alinhar antes?"},
+  {id:"extra", l:"Algo que ainda não perguntei e eu deveria saber?"}
+ ]}
+];
+const KEY="onboarding-marketing-v1";
+let data={};
+try{data=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){data={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}};
+const app=document.getElementById("app");
+let total=0;
+BLOCKS.forEach((b,i)=>{
+  const s=document.createElement("section");s.className="blk";
+  const h=document.createElement("h2");h.innerHTML="<span>"+String(i+1).padStart(2,"0")+"</span>";h.append(b.t);
+  const sub=document.createElement("p");sub.className="sub";sub.textContent=b.s;
+  s.append(h,sub);
+  b.q.forEach(q=>{
+    total++;
+    const d=document.createElement("div");d.className="q";d.id="q-"+q.id;
+    const l=document.createElement("label");l.htmlFor="t-"+q.id;l.textContent=q.l;
+    d.append(l);
+    if(q.w){const w=document.createElement("p");w.className="why";w.textContent=q.w;d.append(w)}
+    if(q.pre){const p=document.createElement("p");p.className="pre";p.textContent=q.pre;d.append(p)}
+    const t=document.createElement("textarea");t.id="t-"+q.id;t.value=data[q.id]||"";
+    t.addEventListener("input",()=>{data[q.id]=t.value;save();refresh()});
+    d.append(t);s.append(d);
+  });
+  app.append(s);
+});
+function refresh(){
+  let n=0;
+  BLOCKS.forEach(b=>b.q.forEach(q=>{
+    const ok=(data[q.id]||"").trim().length>0;if(ok)n++;
+    document.getElementById("q-"+q.id).classList.toggle("done",ok);
+  }));
+  document.getElementById("count").textContent=n+" de "+total;
+  document.getElementById("fill").style.width=(n/total*100)+"%";
+}
+refresh();
+const toast=m=>{const t=document.getElementById("toast");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2200)};
+document.getElementById("copy").onclick=async()=>{
+  let md="# Briefing de onboarding de marketing\n\n";
+  BLOCKS.forEach(b=>{md+="## "+b.t+"\n\n";b.q.forEach(q=>{md+="**"+q.l+"**\n"+((data[q.id]||"").trim()||"(sem resposta)")+"\n\n"})});
+  try{await navigator.clipboard.writeText(md);toast("Respostas copiadas")}catch(e){toast("Não consegui copiar, selecione e copie à mão")}
+};
+document.getElementById("print").onclick=()=>window.print();
+document.getElementById("clear").onclick=()=>{
+  if(!confirm("Apagar todas as respostas deste navegador?"))return;
+  data={};save();BLOCKS.forEach(b=>b.q.forEach(q=>document.getElementById("t-"+q.id).value=""));refresh();
+};
+const root=document.documentElement;
+try{const th=localStorage.getItem("onb-theme");if(th)root.dataset.theme=th}catch(e){}
+document.getElementById("theme").onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+  root.dataset.theme=dark?"light":"dark";try{localStorage.setItem("onb-theme",root.dataset.theme)}catch(e){}
+};
+</script>
+</body>
+</html>

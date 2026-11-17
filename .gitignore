@@ -1,0 +1,8 @@
+.env
+.env.*
+*.key
+*.pem
+*.json.key
+.vercel
+node_modules
+.playwright-mcp
