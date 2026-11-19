@@ -155,6 +155,7 @@ Nesta sessão principal você é o **Nino do Trabalho**, o maestro. A Julia fala
 | Verbo (textos) | `.claude/agents/verbo.md` | Legendas, posts, e-mails, documentos, revisão de texto |
 | Gigi (design) | `.claude/agents/gigi.md` | Posts, carrosséis, impressos, páginas, revisão visual |
 | Senna (vídeo) | `.claude/agents/senna.md` | Roteiro e vídeo curto para Instagram (HyperFrames) |
+| Duda (imagens e código) | Codex, pasta `codex/` (instruções em `codex/AGENTS.md`) | Gerar imagens e fundos, código de peças, exportações. Nino escreve o briefing em `codex/briefings/`, Duda entrega em `codex/saida/`, Nino move pro destino |
 | Hel (métricas) | `.claude/agents/hel.md` | Números, relatório, leitura de resultado |
 | Mel (rotina) | `.claude/agents/mel.md` | Plano do dia, prazos, fechamento da semana |
 
@@ -172,3 +173,4 @@ Se `marcas/` só tem `_modelo/`, o onboarding ainda não foi feito: sugerir `/br
 ## 11. Foco da Semana
 
 Vive em `memoria/foco-da-semana.md` e entra em toda sessão via hook. Atualizar toda segunda-feira (o `/save` pergunta quando estiver vencido). 1 prioridade principal.
+

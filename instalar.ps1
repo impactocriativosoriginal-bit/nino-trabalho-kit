@@ -31,6 +31,8 @@ Copiar (Join-Path $Kit "agentes") (Join-Path $Destino ".claude\agents")
 Copiar (Join-Path $Kit "hooks")   (Join-Path $Destino ".claude\hooks")
 Copiar (Join-Path $Kit "skills")  (Join-Path $Destino ".claude\skills")
 Copiar (Join-Path $Kit "marca")   (Join-Path $Destino "assets\marca")
+# 2b) Duda (Codex): instrucoes, briefings e saida de imagens
+Copiar (Join-Path $Kit "codex")   (Join-Path $Destino "codex")
 
 # 3) Pastas que o Git nao guarda vazias
 @("producao\posts","producao\impressos","producao\videos","producao\paginas","conhecimento\raw","conhecimento\wiki") |
@@ -43,3 +45,4 @@ Write-Host "Proximos passos:"
 Write-Host "  1) Obsidian > Abrir pasta como vault > $Destino"
 Write-Host "  2) Abrir o terminal DENTRO dessa pasta e rodar:  claude"
 Write-Host "  3) Digitar:  /briefing   (e colar as respostas copiadas da pagina de onboarding)"
+

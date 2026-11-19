@@ -49,7 +49,7 @@ Opcional (design e vídeo, já usados no ambiente de casa): `design-taste-fronte
 | Parte | O que é |
 |---|---|
 | `vault/` | Constituição (`.claude/CLAUDE.md`), pastas com índice, foco da semana, todo, modelo de marca |
-| `agentes/` | Pauta, Verbo, Gigi, Senna, Hel, Mel (o Nino do Trabalho é a sessão principal) |
+| `agentes/` | Pauta, Verbo, Gigi, Senna, Hel, Mel (+ Duda no Codex, em `codex/`) (o Nino do Trabalho é a sessão principal) |
 | `hooks/` | Painel de início do dia e protocolo de captura, sem voz |
 | `skills/` | `briefing`, `save`, `criar-pagina` |
 | `marca/` | Logo e tokens da identidade da ProMáxima |
@@ -64,3 +64,4 @@ Opcional (design e vídeo, já usados no ambiente de casa): `design-taste-fronte
 - Nada de senha, chave ou acesso dentro do vault ou do repositório.
 - Nada de dado interno da empresa neste repositório (ele fica na conta pessoal). O vault de trabalho mora na máquina da empresa.
 - Nada é publicado ou enviado sem a revisão da Julia.
+
